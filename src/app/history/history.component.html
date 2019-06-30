@@ -1,0 +1,23 @@
+
+  <div class="history" >
+    <div class="history__row">
+      <span class="history__item">№</span>
+      <span class="history__item">Карта плательщика</span>
+      <span class="history__item">Карта получателя</span>
+      <span class="history__item">Сумма</span>
+      <span class="history__item">Дата выполнения</span>
+      <span class="history__item">Действие</span>
+    </div>
+    <div class="history__row" *ngFor="let item of transfer; let idx = index">
+        <span class="history__item">{{idx + 1}}</span>
+        <span class="history__item">{{item.payerCart.payerP1}} **** **** {{item.payerCart.payerP4}}</span>
+        <span class="history__item">{{item.recipientCart.recipientP1}} **** **** {{item.recipientCart.recipientP4}}</span>
+        <span class="history__item">{{item.sumTransfer}}</span>
+        <span class="history__item">{{item.date}}</span>
+        <span class="history__item">
+          <span class="history__item-button" (click)="repeat(item.id)">Повторить</span>
+          <span class="history__item-button" (click)="delete(item.id)">Удалить</span>
+        </span>
+      </div>
+  </div>
+

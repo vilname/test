@@ -1,0 +1,108 @@
+<!-- скобки означанию что будут использоваться js переменные или функции -->
+<!-- квадратные кнопки означают что будут передаваться данные в шаблон, круглы из шаблона -->
+
+<div class="transfer">
+  <form [formGroup]=form (ngSubmit)="onSubmit()" class="transfer__form">
+    <div class="transfer__container">
+      <div class="transfer__payer">
+        <div class="title">Карта плательщика</div>
+        <div class="transfer__cart-number" formGroupName="payerCart">
+          <div class="transfer__child-title">Номер</div>
+          <input 
+            type="text" 
+            formControlName="payerP1" 
+            class="transfer__part-nomber" 
+            [ngClass]="errorFormStyle('payerCart.payerP1')">
+          <input 
+            type="text" 
+            formControlName="payerP2" 
+            class="transfer__part-nomber"
+            [ngClass]="errorFormStyle('payerCart.payerP2')">
+          <input 
+            type="text" 
+            formControlName="payerP3" 
+            class="transfer__part-nomber"
+            [ngClass]="errorFormStyle('payerCart.payerP3')">
+          <input 
+            type="text" 
+            formControlName="payerP4" 
+            class="transfer__part-nomber"
+            [ngClass]="errorFormStyle('payerCart.payerP4')">
+            <div *ngIf="errorParams('payerCart')">
+              <div *ngIf="validError('required', 'payerCart')">Поле не должно быть пустым</div>
+              <div *ngIf="validError('noNumber', 'payerCart')">Поле должно быть числом</div> 
+            </div>
+        </div>
+        <div class="transfer__payer-info">
+          <div class="transfer__cont-fio">
+            <div class="transfer__child-title">ФИО держателя</div>
+            <input 
+              type="text" 
+              formControlName="payerFio" 
+              class="transfer__payer-fio"
+              [ngClass]="{'has-error': form.get('payerFio').invalid}">
+            <div *ngIf="form.get('payerFio').invalid">
+              <div *ngIf="form.get('payerFio').errors['noString']">Поле должно быть строкой</div>
+            </div>
+          </div>
+          <div class="transfer__child-title">Активна до</div>
+          <select class="transfer__payer-month" formControlName="month">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+          </select>
+          <select 
+            class="transfer__payer-year" 
+            formControlName="year" 
+            [ngClass]="{'has-error': form.get('year').invalid}">
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+      </div>
+      <div class="transfer__recipient">
+        <div class="title">Карта получателя</div>
+        <div class="transfer__recipient-cn" formGroupName="recipientCart">
+          <input 
+            type="text" 
+            formControlName="recipientP1" 
+            class="transfer__part-nomber"
+            [ngClass]="errorFormStyle('recipientCart.recipientP1')">
+          <input 
+            type="text" 
+            formControlName="recipientP2" 
+            class="transfer__part-nomber"
+            [ngClass]="errorFormStyle('recipientCart.recipientP2')">
+          <input 
+            type="text" 
+            formControlName="recipientP3" 
+            class="transfer__part-nomber"
+            [ngClass]="errorFormStyle('recipientCart.recipientP3')">
+          <input 
+            type="text" 
+            formControlName="recipientP4" 
+            class="transfer__part-nomber"
+            [ngClass]="errorFormStyle('recipientCart.recipientP4')">
+            <div *ngIf="errorParams('recipientCart')">
+              <div *ngIf="validError('required', 'recipientCart')">Поле не должно быть пустым</div>
+              <div *ngIf="validError('noNumber', 'recipientCart')">Поле должно быть числом</div> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="transfer__footer">
+      <input 
+        placeholder="Сумма" 
+        type="text" 
+        formControlName="sumTransfer" 
+        class="transfer__footer-sum" 
+        [ngClass]="errorFormStyle('sumTransfer')">
+      <button type="submit" class="transfer__footer-send" [disabled]="form.invalid">Перевести</button>
+    </div>
+    <div class="footer-error" *ngIf="errorParams('sumTransfer')">
+      <div *ngIf="form.get('sumTransfer').errors['required']">Поле не должно быть пустым</div>
+      <div *ngIf="form.get('sumTransfer').errors['noNumber']">Поле должно быть числом</div> 
+    </div>
+  </form>
+</div>

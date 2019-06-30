@@ -1,0 +1,21 @@
+.history{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 20px auto;
+    flex-direction: column;
+}
+.history__item{
+    border: 1px solid;
+    width: 100%;
+    padding: 5px;
+}
+.history__row{
+    display: flex;
+}
+.history__item-button{
+    border: 1px solid;
+    padding: 2px 3px;
+    margin-right: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,64 @@
+.transfer__container{
+    display: flex;
+    justify-content: space-around;
+}
+.transfer__part-nomber{
+    width: 70px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+    outline: none;
+    margin-right: 10px;
+}
+.transfer__part-nomber:last-child{
+    margin-right: 0;
+}
+.transfer__child-title{
+    font-size: 13px;
+}
+.transfer__payer{
+    border: 1px solid;
+    padding: 25px 35px;
+    border-radius: 5px;
+}
+.transfer__cart-number{
+    padding: 15px 0;
+}
+.transfer__payer-fio{
+    outline: none;
+}
+.transfer__cont-fio{
+    margin-bottom: 15px; 
+}
+.transfer{
+    margin-top: 15px;
+}
+.transfer__recipient{
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 25px 35px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.transfer__recipient-cn{
+    margin-top: 32px;
+}
+.transfer__footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.transfer__footer-sum{
+    margin-right: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+.has-error{
+    border: 1px solid #CB2A2A;
+}
+.footer-error{
+    display: flex;
+    justify-content: center;
+}
